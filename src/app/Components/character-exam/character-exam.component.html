@@ -1,0 +1,58 @@
+<div *ngIf="first==true">
+    <div style="text-align: center;color: blue;">
+        <span>!שימ/י לב! בחלק זה נדרשת ממך כנות מלאה ע"מ להגיע לתוצאות המדויקות ביותר</span>
+        <br>
+        <span>כל שעליך לעשות הוא לסמן בכל שורה 'וי' במשבצת לצד ההיגד המאפיין אותך ביותר, וכן לסמן מהי רמת נכונותו לגביך מ1 - 5, בסיום לחץ על כפתור 'אישור', ותועבר להמשך השאלון</span>
+        <br>
+        <span>!!!בהצלחה</span>
+    </div>
+<table style="direction: rtl;margin-left: 29%;margin-right: 29%; display: block;">
+    <thead>
+        <tr>
+            <th></th><th>סימון</th><th></th><th></th><th></th><th></th><th></th><th>סימון</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c1 of characters1"> 
+            <td>{{c1.name1}}</td>
+            <td><input (change)="Cheacked1Changed(c1.code)" [(ngModel)]="this.characters1[c1.code].checked1" name="checked1" type="checkbox" /></td>
+            <td><input (change)="RadioCheackedChanged(0,c1.code)" name={{c1.code}} type="radio"> 1</td>
+            <td><input (change)="RadioCheackedChanged(1,c1.code)" name={{c1.code}} type="radio"> 2</td>
+            <td><input (change)="RadioCheackedChanged(2,c1.code)" name={{c1.code}} type="radio"> 3</td>
+            <td><input (change)="RadioCheackedChanged(3,c1.code)" name={{c1.code}} type="radio"> 4</td>
+            <td><input (change)="RadioCheackedChanged(4,c1.code)" name={{c1.code}} type="radio"> 5</td>
+            <td><input (change)="Cheacked2Changed(c1.code)" [(ngModel)]="this.characters1[c1.code].checked2" name="checked2" type="checkbox" /></td>          
+            <td>{{c1.name2}}</td>           
+        </tr>
+    </tbody>
+</table> 
+<div style="text-align: center;">
+<button (click)="Next()" class="button">המשך</button></div>
+</div>
+
+<div *ngIf="second==true">
+    <table style="direction: rtl;margin-left: 29%;margin-right: 29%; display: block;">
+        <thead>
+            <tr>
+                <th></th><th>סימון</th><th></th><th></th><th></th><th></th><th></th><th>סימון</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c2 of characters2"> 
+                <td>{{c2.name1}}</td>
+                <td><input (change)="Cheacked3Changed(c2.code)" type="checkbox"></td>
+                <td><input (change)="RadioCheackedChanged2(0,c2.code)" name={{c2.code}} type="radio"> 1</td>
+                <td><input (change)="RadioCheackedChanged2(1,c2.code)" name={{c2.code}} type="radio"> 2</td>
+                <td><input (change)="RadioCheackedChanged2(2,c2.code)" name={{c2.code}} type="radio"> 3</td>
+                <td><input (change)="RadioCheackedChanged2(3,c2.code)" name={{c2.code}} type="radio"> 4</td>
+                <td><input (change)="RadioCheackedChanged2(4,c2.code)" name={{c2.code}} type="radio"> 5</td>
+                <td><input (change)="Cheacked4Changed(c2.code)" type="checkbox"></td>          
+                <td>{{c2.name2}}</td>           
+            </tr>
+        </tbody>
+    </table> 
+    <div style="text-align: center;">
+        <button mat-raised-button color="accent" class="button" (click)="Finish()">אישור</button></div>
+        <
+</div>
+    
